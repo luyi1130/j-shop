@@ -11,33 +11,62 @@ function ShippingForm({ onNextStep }) {
         <>
             {/* 大標區塊 */}
             <div className="bg-light card border-0 rounded-4 mb-3 py-2">
-                <div className="card-body py-2">
+                <div className="card-body py-1">
                     <h5 className="mb-0">填寫資料</h5>
                 </div>
             </div>
 
             {/* 表單內容 */}
             <form className="row g-3 mt-1" onSubmit={handleSubmit}>
+                {/* 收件人姓名 */}
                 <div className="col-md-6">
+                    <div className="d-flex align-items-center mb-1">
+                    <img src="./icons/icon-member.svg" alt="地址" style={{ width: 30, height: 30 }} className="me-2" />
                     <label className="form-label">收件人姓名</label>
+                    </div>
                     <input type="text" className="form-control" placeholder="請輸入收件人姓名" />
                 </div>
+
+
+                {/* 聯絡電話 */}
                 <div className="col-md-6">
                     <label className="form-label">聯絡電話</label>
                     <input type="text" className="form-control" placeholder="例如：0912-345-678" />
                 </div>
-                <div className="col-12">
-                    <label className="form-label">地址</label>
-                    <input type="text" className="form-control" placeholder="請輸入完整地址" />
-                </div>
+
+                  {/* Email */}
                 <div className="col-md-6">
+                     <div className="d-flex align-items-center mb-1">
                     <label className="form-label">Email</label>
-                    <input type="email" className="form-control" placeholder="example@mail.com" />
+                    </div>
+                    <div className="input-group">
+                        <input type="email" className="form-control" placeholder="example@mail.com" />
+                    </div>
                 </div>
+
+
+                {/* 地址 */}
                 <div className="col-12">
+                    <div className="d-flex align-items-center mb-1">
+                        <img src="./icons/icon-shipping.svg" alt="地址" style={{ width: 30, height: 30 }} className="me-2" />
+                        <label className="form-label mb-0">運送地址</label>
+                    </div>
+                    <div className="input-group">
+                        <input type="text" className="form-control" placeholder="請輸入完整地址" />
+                    </div>
+                </div>
+
+              
+                {/* 備註 */}
+                <div className="col-12">
+                    <div className="d-flex align-items-center mb-1">
+                    <img src="./icons/icon-list.svg" alt="備註" style={{ width: 30, height: 30 }} className="me-2"/>
                     <label className="form-label">備註</label>
+                    </div>
                     <textarea className="form-control" rows="2" placeholder="備註（如特殊配送需求）"></textarea>
                 </div>
+
+                {/* 按鈕 */}
                 <div className="col-12 text-end">
                     <button type="submit" className="btn-brand">下一步：確認訂單</button>
                 </div>
