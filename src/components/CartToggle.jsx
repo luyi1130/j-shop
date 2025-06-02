@@ -1,15 +1,38 @@
 import React, { useState } from "react";
 import Tag from './Tag';
 
-export default function CartToggle() {
+export default function CartToggle({ cartItems, setCartItems }) {
   const [open, setOpen] = useState(true);
-  const [cartItems, setCartItems] = useState([
-    { id: 1, name: "鈣心定植物鈣", desc: "維鈣+D3雙效配方", price: 365, qty: 1 },
-    { id: 2, name: "鈣心定植物鈣", desc: "維鈣+D3雙效配方", price: 365, qty: 1 },
-  ]);
 
   const handleDelete = (id) => {
     setCartItems(cartItems.filter(item => item.id !== id));
+  };
+
+  const handleQtyChange = (id, delta) => {
+    setCartItems(prevItems =>
+      prevItems.map(item => {
+        if (item.id === id) {
+          let newQty = item.qty + delta;
+          if (newQty < 1) newQty = 1;
+          if (newQty > 10) newQty = 10;
+          return { ...item, qty: newQty };
+        }
+        return item;
+      })
+    );
+  };
+
+  const handleInputChange = (id, value) => {
+    let val = parseInt(value, 10);
+    if (isNaN(val)) val = 1;
+    if (val < 1) val = 1;
+    if (val > 10) val = 10;
+
+    setCartItems(prevItems =>
+      prevItems.map(item =>
+        item.id === id ? { ...item, qty: val } : item
+      )
+    );
   };
 
   return (
@@ -55,18 +78,34 @@ export default function CartToggle() {
                   <div className="text-muted small">{item.desc}</div>
                 </div>
               </div>
-              <div className="col-2" >
+              <div className="col-2">
                 <Tag label="定期購 30% off" />
-                 <div className="">
-                <Tag label="檔期活動 10% off" color="sale"/>
+                <div>
+                  <Tag label="檔期活動 10% off" color="sale" />
+                </div>
               </div>
-              </div>
-              
+
               <div className="col-1">NT${item.price}</div>
               <div className="col-2 d-flex gap-2 align-items-center">
-                <button className="btn btn-outline-secondary btn-sm">−</button>
-                <span>{item.qty}</span>
-                <button className="btn btn-outline-secondary btn-sm">＋</button>
+                <button
+                  className="quantity-btn"
+                  onClick={() => handleQtyChange(item.id, -1)}
+                >−</button>
+
+                <input
+                  type="number"
+                  className="qty-input"
+                  value={item.qty}
+                  min={1}
+                  max={10}
+                  onFocus={(e) => e.target.select()}
+                  onChange={(e) => handleInputChange(item.id, e.target.value)}
+                />
+
+                <button
+                  className="quantity-btn"
+                  onClick={() => handleQtyChange(item.id, +1)}
+                >＋</button>
               </div>
               <div className="col-1 fw-semibold">NT${item.price * item.qty}</div>
               <div className="col-1 text-end">
@@ -90,3 +129,4 @@ export default function CartToggle() {
     </div>
   );
 }
+
