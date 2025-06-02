@@ -41,7 +41,7 @@ export default function CartToggle() {
             >
               <div className="col-5 d-flex gap-3 align-items-center">
                 <img
-                  src="/images/B12-default.png"
+                  src="./images/B12-default.png"
                   alt="商品圖"
                   className="img-thumbnail"
                   style={{
