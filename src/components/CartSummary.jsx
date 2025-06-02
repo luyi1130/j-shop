@@ -10,7 +10,7 @@ export default function CartSummary() {
                     合計：NT$790
                 </div>
                 {/* <button className="btn btn-success px-4 shadow-sm"> </button> */}
-                <button className="btn btn-brand px-4 shadow-sm" >
+                <button className="btn btn-brand px-4 shadow-sm  " >
                     下一步：填寫寄送方式
                 </button>
 

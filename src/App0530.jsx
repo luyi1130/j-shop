@@ -7,13 +7,20 @@ import RecentViewed from './components/RecentViewed';
 function App() {
   return (
     <div className="container py-4">
-      <h1 className="mb-4 fw-bold text-center">🛒 J-SHOP 商店</h1>
+      {/* nav bar */}
+      < div className="navbar navbar-light bg-light">
+      <div className='container-fluid'>
+        <span className='navbar-brand'></span>
+      </div>
+      </div>
       <CheckoutProgress step={1} />
       <CartToggle />
       <CartSummary />
       <RecentViewed />
+      
     </div>
   );
 }
+
 
 export default App;
