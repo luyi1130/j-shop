@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import Tag from './Tag';
 
-export default function CartToggle({ cartItems, setCartItems }) {
-  const [open, setOpen] = useState(true);
-
+export default function CartToggle({ cartItems, setCartItems, isOpen, setIsOpen }) {
   const handleDelete = (id) => {
     setCartItems(cartItems.filter(item => item.id !== id));
   };
@@ -40,13 +38,13 @@ export default function CartToggle({ cartItems, setCartItems }) {
       <div
         className="card-header bg-light d-flex justify-content-between align-items-center"
         style={{ cursor: "pointer" }}
-        onClick={() => setOpen(!open)}
+        onClick={() => setIsOpen(!isOpen)}
       >
         <h5 className="mb-0 fw-regular small">購物車（{cartItems.length} 件）</h5>
-        <i className={`bi ${open ? "bi-chevron-up" : "bi-chevron-down"}`}></i>
+        <i className={`bi ${isOpen ? "bi-chevron-up" : "bi-chevron-down"}`}></i>
       </div>
 
-      {open && (
+      {isOpen && (
         <div className="card-body">
           <div className="row fw-semibold text-muted border-bottom pb-2 mb-3 small">
             <div className="col-5">商品資料</div>
@@ -78,6 +76,7 @@ export default function CartToggle({ cartItems, setCartItems }) {
                   <div className="text-muted small">{item.desc}</div>
                 </div>
               </div>
+
               <div className="col-2">
                 <Tag label="定期購 30% off" />
                 <div>
@@ -86,6 +85,7 @@ export default function CartToggle({ cartItems, setCartItems }) {
               </div>
 
               <div className="col-1">NT${item.price}</div>
+
               <div className="col-2 d-flex gap-2 align-items-center">
                 <button
                   className="quantity-btn"
@@ -107,7 +107,9 @@ export default function CartToggle({ cartItems, setCartItems }) {
                   onClick={() => handleQtyChange(item.id, +1)}
                 >＋</button>
               </div>
+
               <div className="col-1 fw-semibold">NT${item.price * item.qty}</div>
+
               <div className="col-1 text-end">
                 <button
                   className="btn btn-outline-danger btn-sm p-1"

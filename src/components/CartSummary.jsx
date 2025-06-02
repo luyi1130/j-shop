@@ -60,7 +60,7 @@ export default function CartSummary({ cartItems, onNextStep, onUsePoints }) {
                     </div>
 
                     <div className="input-group input-group-sm mt-1" style={{ maxWidth: 200, marginLeft: 'auto' }}>
-                      
+
 
                         <input
                             type="number"
@@ -85,13 +85,15 @@ export default function CartSummary({ cartItems, onNextStep, onUsePoints }) {
                     合計：NT${total < 0 ? 0 : total}
                 </div>
 
-                <button
-                    className="btn-brand"
-                    onClick={onNextStep}
-                    disabled={cartItems.length === 0}
-                >
-                    下一步：填寫寄送方式
-                </button>
+                {onNextStep && (
+                    <button
+                        className="btn-brand"
+                        onClick={onNextStep}
+                        disabled={cartItems.length === 0}
+                    >
+                        下一步：填寫寄送方式
+                    </button>
+                )}
             </div>
         </div>
     );
