@@ -72,20 +72,37 @@ body {
   font-size: 16px;
   font-family: 'Noto Sans TC', sans-serif;
   transition: all 0.3s ease;
-  width: 100%; /* 依需求可改成 auto */
+  width: auto; /* 依需求可改成 auto */
   text-align: center;
 }
 
 /* 按鈕Hover 和點擊效果 */
+.btn-brand {
+  background-color: #3dce94;
+  color: white;
+  border: none;
+  border-radius: 18px;
+  padding: 7px 69px;
+  font-size: 16px;
+  font-family: 'Noto Sans TC', sans-serif;
+  transition: all 0.3s ease;
+  width: auto;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Hover / Active / Focus 狀態統一 */
 .btn-brand:hover,
-.btn-brand:active {
+.btn-brand:active,
+.btn-brand:focus {
   background-color: #fff;
   color: #3dce94;
   border: 3px solid #3dce94;
+  outline: none; /* 移除預設黑框 */
+  box-shadow: none; /* 防止 Bootstrap 預設的按鈕陰影 */
 }
-.btn-brand {
-  cursor: pointer;
-}
+
+
 /* 數量按鈕 */
 .quantity-btn {
   background-color: #D8F7EA; /* 預設背景 */

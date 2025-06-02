@@ -15,7 +15,7 @@ export default function CartSummary({ cartItems, onNextStep }) {
           合計：NT${total}
         </div>
         <button
-          className="btn btn-brand px-4 shadow-sm"
+          className="btn-brand"
           onClick={onNextStep}
           disabled={cartItems.length === 0}
         >
