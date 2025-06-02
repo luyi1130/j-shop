@@ -77,7 +77,7 @@ export default function CartToggle() {
                   style={{ border: "none", background: "transparent" }}
                 >
                   <img
-                    src="/icons/icon-del.svg"
+                    src="./icons/icon-del.svg"
                     alt="刪除"
                     style={{ width: 25, height: 25, cursor: "pointer" }}
                   />

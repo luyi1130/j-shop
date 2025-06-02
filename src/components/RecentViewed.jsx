@@ -63,7 +63,7 @@ export default function RecentViewed() {
                             style={{ minWidth: 200, height: "100%" }}
                         >
                             <img
-                                src="/images/B12-default.png"
+                                src="./images/B12-default.png"
                                 className="card-img-top"
                                 alt="商品"
                                 style={{ height: 150, objectFit: "cover" }}
