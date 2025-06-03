@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Tag from './Tag';
 
-export default function CartToggle({ cartItems, setCartItems, isOpen, setIsOpen }) {
+export default function CartToggle({ cartItems, setCartItems, isOpen, setIsOpen, cartAnimation }) { 
   const handleDelete = (id) => {
     setCartItems(cartItems.filter(item => item.id !== id));
   };
@@ -34,6 +34,7 @@ export default function CartToggle({ cartItems, setCartItems, isOpen, setIsOpen 
   };
 
   return (
+
     <div className="card shadow-sm border-0 rounded-4 mb-4">
       <div
         className="card-header bg-light d-flex justify-content-between align-items-center"

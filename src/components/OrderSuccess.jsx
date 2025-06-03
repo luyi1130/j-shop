@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { CheckCircle } from 'react-bootstrap-icons';
 
 export default function OrderSuccess({ orderNumber }) {
@@ -13,3 +14,4 @@ export default function OrderSuccess({ orderNumber }) {
     </div>
   );
 }
+ 

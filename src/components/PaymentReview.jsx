@@ -38,7 +38,7 @@ export default function PaymentReview({
       {/* 配送資料 */}
       <div className="col-md-6">
         <h5 className="mb-3">
-           <img
+          <img
             src="./icons/icon-shipping.svg"
             alt="配送資訊"
             style={{ width: 30, height: 30 }}
@@ -51,7 +51,7 @@ export default function PaymentReview({
         <p className="text-muted">運費：NT${shipping}</p>
       </div>
 
-   
+
 
       {/* 付款與發票資訊 */}
       <div className="col-6">
@@ -90,10 +90,10 @@ export default function PaymentReview({
         )}
       </div>
 
-         {/* 訂單金額與購物金 */}
+      {/* 訂單金額與購物金 */}
       <div className="col-6">
         <h5 className="mb-3">
-            <img
+          <img
             src="./icons/icon-list.svg"
             alt="配送資訊"
             style={{ width: 30, height: 30 }}
@@ -112,11 +112,11 @@ export default function PaymentReview({
 
       {/* 動作按鈕 */}
       <div className="col-12 text-end">
-        <button className="btn btn-outline-secondary me-3" onClick={onBack}>
-          上一步
+        <button className="btn btn-onback-light me-3" onClick={onBack}>
+          上一步:付款方式
         </button>
         <button className="btn-brand" onClick={onSubmit}>
-          確認付款
+          素！下單
         </button>
       </div>
     </div>
