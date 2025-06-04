@@ -115,7 +115,7 @@ function App() {
         onClick={() => setIsCartOpen(!isCartOpen)}
       >
         <div className="position-relative">
-          <img src="./icons/cart.svg" width="48" alt="cart" />
+          <img src="./icons/icon-cart.svg" width="48" alt="cart" />
           <span className={`cart-count-badge ${cartAnimation ? "bump" : ""}`}>
             {cartItems.reduce((sum, item) => sum + item.qty, 0)}
           </span>
